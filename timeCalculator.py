@@ -42,11 +42,10 @@ while True:
     endTime = timeInput()
     timeDifference = endTime - startTime
     print()
-    if round(0.25,1) == 0.2:
-        binaryFix = 0.01 # round() rounds 0.25 to 0.2 without this
-    else:
-        binaryFix = 0
-    diffHours = round(timeDifference/60+binaryFix, 1) # added +binaryFix to fix the round() issues
+    binaryFix = 0
+    if round(0.25,1) == 0.2: # comment out to use 'ties to even' rule
+        binaryFix = 0.01 # round() rounds 0.25 to 0.2 without this # comment out to use 'ties to even' rule
+    diffHours = round(timeDifference/60+binaryFix, 1) # added +binaryFix to use 'ties away from' zero rule
     print(str(diffHours) + ' hours')
     print()
     # exit code
